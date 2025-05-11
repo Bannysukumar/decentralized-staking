@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - BXC Staking Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .reviews-hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .reviews-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .reviews-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+
+        .review-info h4 {
+            margin: 0;
+            color: #333;
+        }
+
+        .review-date {
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .review-stars {
+            color: #ffd700;
+            margin: 10px 0;
+        }
+
+        .review-content {
+            color: #444;
+            line-height: 1.6;
+        }
+
+        .review-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .review-action {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: color 0.3s ease;
+        }
+
+        .review-action:hover {
+            color: var(--primary-color);
+        }
+
+        .write-review {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .write-review-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .write-review-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 20px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-section ul li a:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-section ul li a i {
+            font-size: 0.8em;
+            opacity: 0.7;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            color: white;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icon:hover {
+            transform: translateY(-5px);
+            background: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .reviews-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .footer-section ul li a {
+                justify-content: center;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="reviews-hero">
+        <h1>User Reviews</h1>
+        <p>See what our community says about BXC Staking Platform</p>
+    </section>
+
+    <div class="reviews-content">
+        <div class="reviews-stats">
+            <div class="stat-card">
+                <div class="stat-number">4.8</div>
+                <p>Average Rating</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">1,234</div>
+                <p>Total Reviews</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <p>Would Recommend</p>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <p>Support Response</p>
+            </div>
+        </div>
+
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" class="review-avatar">
+                    <div class="review-info">
+                        <h4>John Smith</h4>
+                        <span class="review-date">March 15, 2024</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-content">"The best staking platform I've used. The daily returns are consistent and the referral system is amazing! I've been able to build a great passive income stream."</p>
+                <div class="review-actions">
+                    <a href="#" class="review-action"><i class="fas fa-thumbs-up"></i> Helpful (45)</a>
+                    <a href="#" class="review-action"><i class="fas fa-comment"></i> Reply</a>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="review-avatar">
+                    <div class="review-info">
+                        <h4>Sarah Johnson</h4>
+                        <span class="review-date">March 14, 2024</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="review-content">"The platform is very user-friendly and the support team is always helpful. Great passive income source! The auto-compounding feature is a game-changer."</p>
+                <div class="review-actions">
+                    <a href="#" class="review-action"><i class="fas fa-thumbs-up"></i> Helpful (32)</a>
+                    <a href="#" class="review-action"><i class="fas fa-comment"></i> Reply</a>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-header">
+                    <img src="https://i.pravatar.cc/150?img=3" alt="User Avatar" class="review-avatar">
+                    <div class="review-info">
+                        <h4>Michael Chen</h4>
+                        <span class="review-date">March 13, 2024</span>
+                    </div>
+                </div>
+                <div class="review-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="review-content">"The multi-level referral system is excellent. I've built a great network and the rewards are substantial. The platform's security features give me peace of mind."</p>
+                <div class="review-actions">
+                    <a href="#" class="review-action"><i class="fas fa-thumbs-up"></i> Helpful (28)</a>
+                    <a href="#" class="review-action"><i class="fas fa-comment"></i> Reply</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="write-review">
+            <a href="#" class="write-review-btn">Write a Review</a>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i>Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-info-circle"></i>About Us</a></li>
+                    <li><a href="features.html"><i class="fas fa-star"></i>Features</a></li>
+                    <li><a href="#reviews"><i class="fas fa-comments"></i>Reviews</a></li>
+                    <li><a href="#contact"><i class="fas fa-envelope"></i>Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="faq.html"><i class="fas fa-question-circle"></i>FAQ</a></li>
+                    <li><a href="#terms"><i class="fas fa-file-contract"></i>Terms of Service</a></li>
+                    <li><a href="#privacy"><i class="fas fa-shield-alt"></i>Privacy Policy</a></li>
+                    <li><a href="#support"><i class="fas fa-headset"></i>Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-medium"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BXC Staking Platform. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html> 
