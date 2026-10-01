@@ -2,7 +2,19 @@
 
 A decentralized staking platform built on the BXC Chain that allows users to stake tokens, earn daily rewards, and participate in a multi-level referral system.
 
+[![License](https://img.shields.io/github/license/Bannysukumar/decentralized-staking)](https://github.com/Bannysukumar/decentralized-staking/blob/main/LICENSE) [![Stars](https://img.shields.io/github/stars/Bannysukumar/decentralized-staking)](https://github.com/Bannysukumar/decentralized-staking/stargazers) [![Last commit](https://img.shields.io/github/last-commit/Bannysukumar/decentralized-staking)](https://github.com/Bannysukumar/decentralized-staking/commits/main)
+
+## Overview
+
+A decentralized staking platform built on the BXC Chain that allows users to stake tokens, earn daily rewards, and participate in a multi-level referral system.
+
+
+What is actually in the repository: `contracts/BXCToken.sol`, `contracts/StakingPlatform.sol`, `.vscode/`, `contracts/`, `scripts/`. GitHub reports the primary language as HTML.
+
+Published site recorded on the repository: https://decentralized-staking-bay.vercel.app
+
 ## Features
+
 
 - Multi-level referral system (8 levels)
 - Daily ROI (Return on Investment)
@@ -10,121 +22,74 @@ A decentralized staking platform built on the BXC Chain that allows users to sta
 - Restaking functionality
 - Modern and responsive UI
 - Secure smart contract implementation
+- BXCToken contract with mint, burn
+- StakingPlatform contract with stake
 
-## Prerequisites
+## Tech Stack
 
-- Node.js (v14 or higher)
-- MetaMask or any Web3 wallet
-- BXC Chain network configured in your wallet
+| Technology | Where it shows up |
+|---|---|
+| Solidity | Smart contracts |
+| Hardhat | Solidity compile and deploy scripts |
+| ethers.js or web3.js | Wallet and contract calls from the browser or app |
+| OpenZeppelin | Smart-contract base contracts |
 
-## Installation
+## Project Architecture
 
-1. Clone the repository:
-```bash
-git clone <repository-url>
-cd staking-platform
+Browser page → Solidity contract. The HTML references MetaMask.
+
+## Project Structure
+
+```text
+decentralized-staking/
+├── .vscode/
+├── contracts/
+├── scripts/
+├── about.html
+├── app.js
+├── faq.html
+├── features.html
+├── hardhat.config.js
+├── home.html
+├── index.html
+├── package.json
+├── privacy.html
+├── reviews.html
+├── styles.css
+├── terms.html
 ```
 
-2. Install dependencies:
+## Getting Started
+
 ```bash
+git clone https://github.com/Bannysukumar/decentralized-staking.git
+cd decentralized-staking
 npm install
+npm run compile
 ```
 
-3. Create a `.env` file in the root directory and add your configuration:
-```
-MNEMONIC=your_wallet_mnemonic
-BSC_TESTNET_URL=https://data-seed-prebsc-1-s1.binance.org:8545
-BSC_MAINNET_URL=https://bsc-dataseed.binance.org/
-```
+Scripts defined in package.json:
+
+- `npm run test` — `hardhat test`
+- `npm run compile` — `hardhat compile`
+- `npm run deploy` — `hardhat run scripts/deploy.js --network bscTestnet`
 
 ## Deployment
 
-1. Compile the smart contracts:
-```bash
-npx hardhat compile
-```
-
-2. Deploy to BSC Testnet:
-```bash
-npx hardhat run scripts/deploy.js --network bscTestnet
-```
-
-3. Update the contract address and ABI in `app.js` with the deployed contract information.
-
-## Usage
-
-1. Start a local server to serve the frontend:
-```bash
-npx http-server
-```
-
-2. Open your browser and navigate to `http://localhost:8080`
-
-3. Connect your wallet using MetaMask
-
-4. Start staking and referring others!
-
-## Smart Contract Features
-
-### Staking
-- Users can stake tokens with an optional referrer
-- Daily ROI of 1%
-- Maximum ROI cap of 200%
-
-### Referral System
-- 8 levels of referrals
-- Level 1: 4% commission
-- Level 2: 2% commission
-- Levels 3-8: 1% commission each
-
-### Security Features
-- Reentrancy protection
-- Access control
-- Safe math operations
-- Event logging for all important actions
-
-## Frontend Features
-
-- Wallet connection
-- Staking interface
-- Referral link generation
-- Dashboard with real-time statistics
-- Active stakes management
-- ROI claiming
-- Restaking functionality
-
-## Testing
-
-Run the test suite:
-```bash
-npx hardhat test
-```
-
-## Security Considerations
-
-- Always verify the contract address before interacting
-- Use a hardware wallet for large amounts
-- Never share your private keys or mnemonic
-- Test thoroughly on testnet before using mainnet
-
-## License
-
-MIT
+- The repository homepage is https://decentralized-staking-bay.vercel.app.
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a new Pull Request
-
-<!-- readme-seo: bannysukumar -->
-
-## Open source
-
-This repository is open source and maintained by [Banny Sukumar](https://github.com/Bannysukumar). Decentralized Staking is published so other developers can study the code and contribute.
+Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
 
 ## License
 
-Released under the [MIT License](LICENSE). Copyright (c) 2026 Banny Sukumar. See [CONTRIBUTING.md](CONTRIBUTING.md) if you want to help.
+Licensed under MIT. See [LICENSE](LICENSE).
+
+## Author
+
+[Banny Sukumar](https://github.com/Bannysukumar)
+
+- GitHub: [@Bannysukumar](https://github.com/Bannysukumar)
+- Portfolio: [adepu-sukumar.vercel.app](https://adepu-sukumar.vercel.app/)
+- LinkedIn: [Adepu Sukumar](https://www.linkedin.com/in/adepu-sukumar-59b423351)
